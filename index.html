@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rejoindre le Groupe Archipel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #0D1F35;
+      --navy-light: #1A3250;
+      --sand: #F5F0E8;
+      --gold: #C8A96E;
+      --white: #FFFFFF;
+      --grey: #6B7280;
+      --grey-light: #F9F8F6;
+      --text: #1A1A1A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+
+    nav .logo span { color: var(--gold); }
+
+    nav a.nav-cta {
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      padding: 9px 20px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    nav a.nav-cta:hover { background: var(--navy-light); }
+
+    /* ── HERO ── */
+    .hero {
+      padding-top: 64px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      padding: 80px 60px 80px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--grey-light);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sand);
+      border: 1px solid var(--gold);
+      color: var(--navy);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      width: fit-content;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--grey);
+      max-width: 420px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover { background: var(--navy-light); transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--navy);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 1.5px solid rgba(13,31,53,0.2);
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--navy); background: var(--sand); }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(245,240,232,0.15), transparent);
+    }
+
+    /* ── STATS ── */
+    .stats {
+      background: var(--navy);
+      padding: 40px 80px;
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+      color: var(--white);
+    }
+
+    .stat .number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--gold);
+      display: block;
+    }
+
+    .stat .label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 400;
+    }
+
+    /* ── SECTIONS COMMUNES ── */
+    section { padding: 88px 80px; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      line-height: 1.2;
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    /* ── POURQUOI NOUS ── */
+    .why { background: var(--grey-light); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .why-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .why-card .icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .why-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .why-card p {
+      font-size: 0.88rem;
+      color: var(--grey);
+      line-height: 1.65;
+    }
+
+    /* ── CABINETS ── */
+    .cabinets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .cabinet-card {
+      border: 1.5px solid rgba(0,0,0,0.08);
+      border-radius: 14px;
+      padding: 24px;
+      transition: all 0.2s;
+    }
+
+    .cabinet-card:hover {
+      border-color: var(--gold);
+      background: var(--sand);
+    }
+
+    .cabinet-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .cabinet-card .location {
+      font-size: 0.82rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .cabinet-card p {
+      font-size: 0.82rem;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+
+    /* ── OFFRES ── */
+    .offres { background: var(--navy); }
+
+    .offres .section-title { color: var(--white); }
+    .offres .section-label { color: var(--gold); }
+
+    .offres-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 44px;
+    }
+
+    .offre-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.2s;
+    }
+
+    .offre-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--gold);
+    }
+
+    .offre-card .tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .offre-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .offre-card p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    .offres .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .offres .btn-primary:hover { background: #b8985e; }
+
+    /* ── PHOTO BANDE ── */
+    .photo-band {
+      height: 420px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo-band img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .photo-band::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(13,31,53,0.4));
+    }
+
+    /* ── PROCESS ── */
+    .process { background: var(--grey-light); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: 48px;
+      right: 48px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.3;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      margin: 0 auto 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 0.83rem;
+      color: var(--grey);
+      line-height: 1.6;
+    }
+
+    /* ── FORMULAIRE ── */
+    .form-section {
+      background: var(--sand);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .form-section .section-title { margin-bottom: 16px; }
+
+    .form-section p {
+      color: var(--grey);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .tally-embed {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .tally-placeholder {
+      text-align: center;
+      color: var(--grey);
+    }
+
+    .tally-placeholder p { font-size: 0.85rem; margin-top: 8px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 40px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer .logo {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+    }
+
+    footer .logo span { color: var(--gold); }
+
+    footer p {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.82rem;
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 280px; }
+      .hero-left { padding: 60px 32px; }
+      section { padding: 64px 32px; }
+      .stats { padding: 32px; }
+      nav { padding: 0 24px; }
+      .cabinets-grid { grid-template-columns: repeat(2, 1fr); }
+      .offres-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-steps::before { display: none; }
+      .form-section { grid-template-columns: 1fr; }
+      footer { padding: 32px; }
+    }
+
+    @media (max-width: 600px) {
+      .cabinets-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Groupe <span>Archipel</span></div>
+  <a href="https://app.wink-lab.com/entreprise/archipel" class="nav-cta" target="_blank">Voir nos offres →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <div class="hero-badge">Recrutement juniors</div>
+    <h1>Lancez votre carrière dans <em>l'expertise comptable</em></h1>
+    <p>Des missions concrètes dès le premier jour, dans des cabinets à taille humaine, portés par un groupe en pleine croissance.</p>
+    <div class="hero-actions">
+      <a href="https://app.wink-lab.com/entreprise/archipel" class="btn-primary" target="_blank">Voir nos offres →</a>
+      <a href="#contact" class="btn-secondary">Être alerté·e</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://cdn.prod.website-files.com/68b5c9f1cd50babf5cdd4259/68b6aa2c889daaea9cc1cf89_250616-Se%CC%81minaire_Groupe_REY-030.jpg" alt="Équipe Groupe Archipel">
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><span class="number">6</span><span class="label">Cabinets indépendants</span></div>
+  <div class="stat"><span class="number">300+</span><span class="label">Collaborateurs</span></div>
+  <div class="stat"><span class="number">8 000+</span><span class="label">Clients</span></div>
+  <div class="stat"><span class="number">2025</span><span class="label">Fondé — en pleine croissance</span></div>
+</div>
+
+<!-- POURQUOI NOUS -->
+<section class="why">
+  <div class="section-label">Pourquoi nous rejoindre</div>
+  <div class="section-title">Un groupe qui investit vraiment sur ses juniors</div>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="icon">🎯</span>
+      <h3>Des responsabilités dès le premier jour</h3>
+      <p>Pas de photocopies. Des vraies missions, un vrai encadrement, et une progression rapide.</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">🌍</span>
+      <h3>Plusieurs cabinets, plusieurs villes</h3>
+      <p>Paris, Rennes, Lyon, Tours, Nancy, Luxembourg — trouvez l'environnement qui vous correspond.</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">🤖</span>
+      <h3>Un métier qui évolue, et on vous y prépare</h3>
+      <p>Outils de comptabilité augmentée, formations IA, automatisation… On prépare nos équipes aux métiers de demain.</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">📈</span>
+      <h3>Un groupe en pleine croissance</h3>
+      <p>Fondé en 2025, Archipel s'agrandit vite. Les opportunités pour évoluer aussi.</p>
+    </div>
+    <div class="why-card">
+      <span class="icon">🤝</span>
+      <h3>L'humain avant tout</h3>
+      <p>Des associés accessibles, des équipes soudées, une vraie culture de la montée en compétences.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CABINETS -->
+<section>
+  <div class="section-label">Nos cabinets</div>
+  <div class="section-title">6 structures indépendantes, une ambition commune</div>
+  <div class="cabinets-grid">
+    <div class="cabinet-card">
+      <h3>Avei'a</h3>
+      <div class="location">Grand Est · Luxembourg</div>
+      <p>Expertise comptable, paie & RH, conseil, médico-social, agriculture.</p>
+    </div>
+    <div class="cabinet-card">
+      <h3>Finantis</h3>
+      <div class="location">Paris</div>
+      <p>Expertise comptable, audit, commissariat aux comptes.</p>
+    </div>
+    <div class="cabinet-card">
+      <h3>Groupe Conseils</h3>
+      <div class="location">Île-de-France</div>
+      <p>Conseil stratégique, juridique, audit, hôtellerie-restauration.</p>
+    </div>
+    <div class="cabinet-card">
+      <h3>Groupe Rey</h3>
+      <div class="location">Paris · Rennes</div>
+      <p>Audit légal, expertise comptable, direction financière externalisée.</p>
+    </div>
+    <div class="cabinet-card">
+      <h3>Lamy Experts</h3>
+      <div class="location">Paris · Saint-Maur</div>
+      <p>Comptabilité, paie, fiscalité, audit, professions libérales.</p>
+    </div>
+    <div class="cabinet-card">
+      <h3>P2R</h3>
+      <div class="location">Neuilly · Lyon · Tours</div>
+      <p>Expertise comptable, audit, immobilier, architecture.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BANDE -->
+<div class="photo-band">
+  <img src="https://cdn.prod.website-files.com/68b5c9f1cd50babf5cdd4259/68b6aa2cbe5eb65511ed918e_250616-Se%CC%81minaire_Groupe_REY-207.jpg" alt="Séminaire Groupe Archipel">
+</div>
+
+<!-- OFFRES -->
+<section class="offres">
+  <div class="section-label">On recrute</div>
+  <div class="section-title">Stage, alternance, CDI junior</div>
+  <div class="offres-grid">
+    <div class="offre-card">
+      <span class="tag">Stage</span>
+      <h3>Découvrir le métier</h3>
+      <p>Des missions opérationnelles, un vrai encadrement, dans un cabinet où votre présence compte vraiment.</p>
+    </div>
+    <div class="offre-card">
+      <span class="tag">Alternance</span>
+      <h3>Se former en conditions réelles</h3>
+      <p>Préparez votre DCG, DSCG ou Master dans un cabinet qui s'implique dans votre formation — pas juste dans votre présence.</p>
+    </div>
+    <div class="offre-card">
+      <span class="tag">CDI Junior</span>
+      <h3>Démarrer sa carrière</h3>
+      <p>Vous venez de valider votre diplôme ? Rejoignez un groupe en croissance où les responsabilités arrivent vite.</p>
+    </div>
+  </div>
+  <a href="https://app.wink-lab.com/entreprise/archipel" class="btn-primary" target="_blank">Voir toutes nos offres →</a>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-label">Le process</div>
+  <div class="section-title">Simple, rapide, humain</div>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Candidature</h3>
+      <p>Un CV + quelques lignes sur votre projet. C'est tout. On lit tout.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Appel découverte</h3>
+      <p>30 min avec notre recruteuse pour comprendre votre projet et répondre à vos questions.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Entretien cabinet</h3>
+      <p>Rencontre avec l'associé, le manager, les missions concrètes. Et un test technique sur place.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Réponse rapide</h3>
+      <p>Process bouclé en moins de deux semaines. On ne ghost pas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="form-section" id="contact">
+  <div>
+    <div class="section-label">Pas encore disponible ?</div>
+    <div class="section-title">Restez dans la boucle.</div>
+    <p>Laissez-nous vos coordonnées et dites-nous ce que vous recherchez. On vous contacte en priorité dès qu'une offre correspond à votre profil.</p>
+    <p>Une question ? <a href="mailto:recrutement@groupearchipel.com" style="color:var(--navy);font-weight:600;">recrutement@groupearchipel.com</a></p>
+  </div>
+  <div class="tally-embed">
+    <div class="tally-placeholder">
+      <!-- Remplacer ce bloc par le code embed Tally -->
+      <p style="font-size:0.9rem;color:#999;">Formulaire Tally à intégrer ici<br><small>Share → Embed → coller l'iframe</small></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Groupe <span>Archipel</span></div>
+  <p>© 2026 Groupe Archipel — Tous droits réservés</p>
+  <a href="https://www.groupearchipel.com" target="_blank">groupearchipel.com →</a>
+</footer>
+
+</body>
+</html>
