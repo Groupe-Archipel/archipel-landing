@@ -520,8 +520,194 @@
 
     footer a:hover { text-decoration: underline; }
 
+    /* ── GUIDE CANDIDAT ── */
+    .guide { background: var(--white); }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .guide-card {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid rgba(0,0,0,0.07);
+    }
+
+    .guide-card-header {
+      background: var(--navy);
+      padding: 24px 28px 20px;
+    }
+
+    .guide-card-header .step-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .guide-card-header h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .guide-card-body {
+      padding: 24px 28px;
+      background: var(--grey-light);
+    }
+
+    .guide-card-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .guide-card-body ul li {
+      font-size: 0.87rem;
+      color: var(--text);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .guide-card-body ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── DEC ── */
+    .dec {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dec::before {
+      content: 'DEC';
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .dec-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dec .section-label { color: var(--gold); }
+    .dec .section-title { color: var(--white); margin-bottom: 20px; }
+
+    .dec-intro {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .dec-path {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .dec-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .dec-step .dot {
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 6px;
+    }
+
+    .dec-step div h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .dec-step div p {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    .dec-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(200,169,110,0.3);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    .dec-card .dec-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(200,169,110,0.2);
+    }
+
+    .dec-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .dec-card ul li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .dec-card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .dec-card .dec-cta {
+      margin-top: 28px;
+      display: block;
+      text-align: center;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      .guide-grid { grid-template-columns: 1fr; }
+      .dec-inner { grid-template-columns: 1fr; gap: 40px; }
+      .dec::before { display: none; }
       .hero { grid-template-columns: 1fr; }
       .hero-right { height: 280px; }
       .hero-left { padding: 60px 32px; }
@@ -699,6 +885,118 @@
       <div class="step-num">4</div>
       <h3>Réponse rapide</h3>
       <p>Process bouclé en moins de deux semaines. On ne ghost pas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDE CANDIDAT -->
+<section class="guide">
+  <div class="section-label">Guide candidat</div>
+  <div class="section-title">Comment bien se préparer ?</div>
+  <div class="guide-grid">
+
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <span class="step-tag">Étape 1</span>
+        <h3>Renseignez-vous sur le cabinet qui vous intéresse</h3>
+      </div>
+      <div class="guide-card-body">
+        <ul>
+          <li>Visitez le site du cabinet et notez ses spécialités sectorielles (hôtellerie, immobilier, professions libérales…)</li>
+          <li>Regardez sa taille, sa localisation, son histoire — ça montre que vous avez fait le choix, pas juste candidaté partout</li>
+          <li>Identifiez ce qui vous attire vraiment : le secteur ? la taille humaine ? la diversité des missions ?</li>
+          <li>Parcourez le LinkedIn de Groupe Archipel pour comprendre l'actualité du groupe</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <span class="step-tag">Étape 2</span>
+        <h3>Préparez votre présentation en 3 minutes chrono</h3>
+      </div>
+      <div class="guide-card-body">
+        <ul>
+          <li><strong>Qui vous êtes :</strong> formation, école, rythme d'alternance ou disponibilité de stage</li>
+          <li><strong>Ce que vous avez fait :</strong> une ou deux expériences marquantes, racontées simplement</li>
+          <li><strong>Pourquoi vous êtes là :</strong> ce qui vous a amené vers l'expertise comptable et vers ce cabinet en particulier</li>
+          <li>Entraînez-vous à voix haute — 3 min max, pas de lecture, regard direct</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-card-header">
+        <span class="step-tag">Étape 3</span>
+        <h3>Préparez des vraies questions — pas des pièges</h3>
+      </div>
+      <div class="guide-card-body">
+        <ul>
+          <li>« Quelle est la composition de l'équipe avec laquelle je travaillerais au quotidien ? »</li>
+          <li>« Comment se passe la montée en compétences d'un alternant dans votre cabinet ? »</li>
+          <li>« Quels sont les types de dossiers sur lesquels je serais positionné·e en priorité ? »</li>
+          <li>« Quelles sont les perspectives au sein du Groupe après l'alternance ? »</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DEC -->
+<section class="dec">
+  <div class="dec-inner">
+    <div>
+      <div class="section-label">Carrière long terme</div>
+      <div class="section-title">Devenez Expert-Comptable au sein du Groupe</div>
+      <p class="dec-intro">
+        Rejoindre Archipel en stage ou en alternance, c'est aussi s'ouvrir une voie vers le titre d'Expert-Comptable. Nos cabinets accompagnent activement leurs collaborateurs dans la préparation du DEC — parce qu'un expert-comptable formé ici est un expert-comptable qui reste.
+      </p>
+      <div class="dec-path">
+        <div class="dec-step">
+          <div class="dot"></div>
+          <div>
+            <h4>Stage ou alternance</h4>
+            <p>Vous découvrez le métier en conditions réelles, dès le DCG ou le DSCG.</p>
+          </div>
+        </div>
+        <div class="dec-step">
+          <div class="dot"></div>
+          <div>
+            <h4>CDI collaborateur</h4>
+            <p>Vous gérez votre propre portefeuille clients, vous montez en compétences.</p>
+          </div>
+        </div>
+        <div class="dec-step">
+          <div class="dot"></div>
+          <div>
+            <h4>Stage DEC accompagné</h4>
+            <p>Nos cabinets proposent des stages de préparation au DEC et soutiennent les candidats dans leur parcours.</p>
+          </div>
+        </div>
+        <div class="dec-step">
+          <div class="dot"></div>
+          <div>
+            <h4>Expert-Comptable diplômé</h4>
+            <p>Vous construisez votre carrière au sein du Groupe — jusqu'à l'association si vous le souhaitez.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dec-card">
+      <div class="dec-card-title">Ce que nos cabinets proposent</div>
+      <ul>
+        <li>Stages de préparation au DEC (3 ans minimum) au sein des cabinets membres</li>
+        <li>Encadrement par des experts-comptables diplômés et des associés investis</li>
+        <li>Accompagnement dans les démarches auprès du CSOEC</li>
+        <li>Flexibilité pour les périodes d'examens et de mémoire</li>
+        <li>Réseau inter-cabinets pour partager les retours d'expérience</li>
+        <li>Perspective d'association pour les profils qui souhaitent s'investir long terme</li>
+      </ul>
+      <div class="dec-cta">
+        <a href="mailto:recrutement@groupearchipel.com" class="btn-primary" style="background:var(--gold);color:var(--navy);display:inline-flex;margin-top:8px;">En savoir plus →</a>
+      </div>
     </div>
   </div>
 </section>
