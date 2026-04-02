@@ -21,7 +21,6 @@
       --sand: #FDF6F1;
     }
 
-    /* ── ARROW DÉCOR ARCHIPEL ── */
     .arrow-decor {
       position: absolute;
       pointer-events: none;
@@ -106,6 +105,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      overflow: visible;
     }
 
     .hero-badge {
@@ -132,9 +132,6 @@
       border-radius: 50%;
     }
 
-    .hero-left { position: relative; overflow: visible; }
-
-    /* Arrow Archipel dans le hero */
     .hero-arrow {
       position: absolute;
       right: -100px;
@@ -200,7 +197,7 @@
       border-radius: 100px;
       font-size: 0.95rem;
       font-weight: 600;
-      border: 1.5px solid rgba(13,31,53,0.2);
+      border: 1.5px solid rgba(255,255,255,0.3);
       transition: all 0.2s;
     }
 
@@ -217,7 +214,6 @@
       position: relative;
       overflow: hidden;
     }
-
 
     .stat {
       text-align: center;
@@ -262,6 +258,7 @@
 
     /* ── POURQUOI NOUS ── */
     .why { background: var(--grey-light); position: relative; overflow: hidden; }
+
     .why-icon-bg {
       position: absolute;
       right: 60px; top: 50%;
@@ -312,6 +309,121 @@
       line-height: 1.65;
     }
 
+    /* ── ARCHIPEL ACADEMY ── */
+    .academy {
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .academy-intro {
+      font-size: 1.05rem;
+      color: var(--grey);
+      max-width: 620px;
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .academy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .academy-card {
+      border-radius: 20px;
+      padding: 36px;
+      border: 1.5px solid rgba(0,0,0,0.08);
+      background: var(--grey-light);
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .academy-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .academy-card--highlight {
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .academy-card--highlight:hover {
+      box-shadow: 0 12px 40px rgba(13,27,75,0.3);
+    }
+
+    .academy-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: rgba(232,149,109,0.12);
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+
+    .academy-card--highlight .academy-tag {
+      background: rgba(232,149,109,0.2);
+    }
+
+    .academy-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .academy-card--highlight h3 {
+      color: var(--white);
+    }
+
+    .academy-card > p {
+      font-size: 0.88rem;
+      color: var(--grey);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .academy-card--highlight > p {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .academy-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .academy-card ul li {
+      font-size: 0.85rem;
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.5;
+      color: var(--grey);
+    }
+
+    .academy-card--highlight ul li {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .academy-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: 700;
+    }
+
     /* ── CABINETS ── */
     .cabinets-grid {
       display: grid;
@@ -352,6 +464,148 @@
       font-size: 0.82rem;
       color: var(--grey);
       line-height: 1.5;
+    }
+
+    /* ── PHOTO BANDE ── */
+    .photo-band {
+      height: 420px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo-band img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .photo-band::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(13,31,53,0.4));
+    }
+
+    /* ── TÉMOIGNAGES VIDÉO ── */
+    .testimonials {
+      background: var(--sand);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials .section-title {
+      max-width: 480px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(13,27,75,0.25);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #07102e;
+      overflow: hidden;
+    }
+
+    /* Quand la vidéo YouTube est intégrée, remplacez .video-placeholder par une iframe :
+       <iframe src="https://www.youtube.com/embed/VOTRE_ID?rel=0"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+               allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe> */
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0D1B4B 0%, #1A2D6B 100%);
+      cursor: pointer;
+      gap: 16px;
+    }
+
+    .play-btn {
+      width: 64px;
+      height: 64px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .testimonial-card:hover .play-btn {
+      transform: scale(1.1);
+      background: #d4784f;
+    }
+
+    .play-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: white;
+      margin-left: 4px;
+    }
+
+    .video-placeholder-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .testimonial-info {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(232,149,109,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--orange);
+      font-weight: 600;
     }
 
     /* ── OFFRES ── */
@@ -411,28 +665,7 @@
       color: var(--navy);
     }
 
-    .offres .btn-primary:hover { background: #b8985e; }
-
-    /* ── PHOTO BANDE ── */
-    .photo-band {
-      height: 420px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .photo-band img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 30%;
-    }
-
-    .photo-band::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 40%, rgba(13,31,53,0.4));
-    }
+    .offres .btn-primary:hover { background: #d4784f; }
 
     /* ── PROCESS ── */
     .process { background: var(--grey-light); }
@@ -488,70 +721,6 @@
       color: var(--grey);
       line-height: 1.6;
     }
-
-    /* ── FORMULAIRE ── */
-    .form-section {
-      background: var(--sand);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .form-section .section-title { margin-bottom: 16px; }
-
-    .form-section p {
-      color: var(--grey);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-
-    .tally-embed {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 32px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-      min-height: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(0,0,0,0.06);
-    }
-
-    .tally-placeholder {
-      text-align: center;
-      color: var(--grey);
-    }
-
-    .tally-placeholder p { font-size: 0.85rem; margin-top: 8px; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      padding: 40px 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    footer .logo img { height: 32px; width: auto; }
-
-    footer p {
-      color: rgba(255,255,255,0.4);
-      font-size: 0.82rem;
-    }
-
-    footer a {
-      color: var(--orange);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    footer a:hover { text-decoration: underline; }
 
     /* ── GUIDE CANDIDAT ── */
     .guide { background: var(--white); }
@@ -733,14 +902,74 @@
       font-weight: 700;
     }
 
-    .dec-card .dec-cta {
-      margin-top: 28px;
-      display: block;
-      text-align: center;
+    /* ── FORMULAIRE ── */
+    .form-section {
+      background: var(--sand);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
     }
+
+    .form-section .section-title { margin-bottom: 16px; }
+
+    .form-section p {
+      color: var(--grey);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .tally-embed {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .tally-placeholder {
+      text-align: center;
+      color: var(--grey);
+    }
+
+    .tally-placeholder p { font-size: 0.85rem; margin-top: 8px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 40px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer .logo img { height: 32px; width: auto; }
+
+    footer p {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.82rem;
+    }
+
+    footer a {
+      color: var(--orange);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    footer a:hover { text-decoration: underline; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      .academy-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
       .guide-grid { grid-template-columns: 1fr; }
       .dec-inner { grid-template-columns: 1fr; gap: 40px; }
       .dec::before { display: none; }
@@ -778,9 +1007,9 @@
   </div>
   <img src="assets/GROUPE ARCHIPEL ARROW.svg" class="hero-arrow" alt="">
   <div class="hero-left">
-    <div class="hero-badge">Recrutement juniors</div>
+    <div class="hero-badge">Stage · Alternance · CDI Junior</div>
     <h1>Lancez votre carrière dans <em>l'expertise comptable</em></h1>
-    <p>Des missions concrètes dès le premier jour, dans des cabinets à taille humaine, portés par un groupe en pleine croissance.</p>
+    <p>Des vraies missions dès le premier jour. Des cabinets à taille humaine. Et derrière, un groupe qui investit vraiment sur ses collaborateurs.</p>
     <div class="hero-actions">
       <a href="https://app.wink-lab.com/entreprise/archipel" class="btn-primary" target="_blank">Voir nos offres →</a>
       <a href="#contact" class="btn-secondary">Être alerté·e</a>
@@ -801,38 +1030,85 @@
 <section class="why">
   <img src="assets/GROUPE ARCHIPEL ICONE LIGHT.png" class="why-icon-bg" alt="">
   <div class="section-label">Pourquoi nous rejoindre</div>
-  <div class="section-title">Un groupe qui investit vraiment sur ses juniors</div>
+  <div class="section-title">Ce qui change vraiment quand on rejoint Archipel</div>
   <div class="why-grid">
     <div class="why-card">
       <img class="icon" src="assets/GROUPE ARCHIPEL ICONE LIGHT.png" alt="">
-      <h3>Des responsabilités dès le premier jour</h3>
-      <p>Pas de photocopies. Des vraies missions, un vrai encadrement, et une progression rapide.</p>
+      <h3>De vraies missions, pas des photocopies</h3>
+      <p>Dès votre première semaine, vous travaillez sur de vrais dossiers clients. Avec un manager qui répond présent — et qui sait que votre progression, c'est aussi la sienne.</p>
     </div>
     <div class="why-card">
       <img class="icon" src="assets/GROUPE ARCHIPEL ICONE LIGHT.png" alt="">
-      <h3>Plusieurs cabinets, plusieurs villes</h3>
-      <p>Paris, Rennes, Lyon, Nancy et partout en France. Trouvez l'environnement qui vous correspond.</p>
+      <h3>7 cabinets, un seul groupe</h3>
+      <p>Paris, Rennes, Lyon, Nancy, Grand Est… Vous choisissez l'environnement qui vous correspond. Et si vos ambitions évoluent, le groupe grandit avec vous.</p>
     </div>
     <div class="why-card">
       <img class="icon" src="assets/GROUPE ARCHIPEL ICONE LIGHT.png" alt="">
-      <h3>Un métier qui évolue, et on vous y prépare</h3>
-      <p>Outils de comptabilité augmentée, formations IA, automatisation… On prépare nos équipes aux métiers de demain.</p>
+      <h3>L'Archipel Academy pour vous former</h3>
+      <p>IA, facturation électronique, posture conseil : des formations concrètes, dispensées en interne, sur des sujets qui transforment vraiment le métier. Pas du e-learning générique.</p>
     </div>
     <div class="why-card">
       <img class="icon" src="assets/GROUPE ARCHIPEL ICONE LIGHT.png" alt="">
-      <h3>Un groupe en pleine croissance</h3>
-      <p>Fondé en 2025, Archipel s'agrandit vite. Les opportunités pour évoluer aussi.</p>
+      <h3>Un groupe jeune, qui recrute vite</h3>
+      <p>Fondé en 2025, Archipel vise 150 M€ de CA et recrute dans tous ses cabinets. Les opportunités d'évoluer existent — et elles ne dépendent pas de savoir attendre son tour.</p>
     </div>
     <div class="why-card">
       <img class="icon" src="assets/GROUPE ARCHIPEL ICONE LIGHT.png" alt="">
-      <h3>L'humain avant tout</h3>
-      <p>Des associés accessibles, des équipes soudées, une vraie culture de la montée en compétences.</p>
+      <h3>Des associés accessibles, une vraie culture</h3>
+      <p>Pas de hiérarchie opaque. Ici, vous parlez directement aux gens qui décident. Les portes sont ouvertes — et ça change vraiment le quotidien.</p>
     </div>
   </div>
 </section>
 
+<!-- ARCHIPEL ACADEMY -->
+<section class="academy">
+  <img src="assets/GROUPE ARCHIPEL ARROW.svg" class="arrow-decor" style="right:-80px;bottom:-40px;width:440px;opacity:0.05;" alt="">
+  <div class="section-label">Archipel Academy</div>
+  <div class="section-title">Se former, innover, progresser ensemble</div>
+  <p class="academy-intro">Ce que vous apprenez en cabinet, c'est bien. Ce que vous gagnez grâce au groupe en plus, c'est ce qui fait vraiment la différence. Archipel a construit trois piliers pour que ses collaborateurs ne stagnent jamais.</p>
+  <div class="academy-grid">
+
+    <div class="academy-card">
+      <span class="academy-tag">Lab</span>
+      <h3>Archipel Lab</h3>
+      <p>Des experts de tous les cabinets qui travaillent ensemble : partage de meilleures pratiques, développement d'outils d'automatisation, élévation collective du niveau.</p>
+      <ul>
+        <li>Communautés d'experts inter-cabinets</li>
+        <li>Développement de standards communs</li>
+        <li>Outils d'automatisation partagés</li>
+        <li>Contrôle qualité mutualisé</li>
+      </ul>
+    </div>
+
+    <div class="academy-card academy-card--highlight">
+      <span class="academy-tag">Academy</span>
+      <h3>Archipel Academy</h3>
+      <p>Un programme de formations structuré sur les sujets qui comptent. Pensé pour les métiers de l'expertise comptable de demain — pas pour cocher une case RH.</p>
+      <ul>
+        <li>IA et outils numériques appliqués au métier</li>
+        <li>Facturation électronique & nouvelles normes</li>
+        <li>Développement commercial & posture conseil</li>
+        <li>Leadership, management et recrutement</li>
+      </ul>
+    </div>
+
+    <div class="academy-card">
+      <span class="academy-tag">Studio</span>
+      <h3>Archipel Studio</h3>
+      <p>L'incubateur interne du groupe. Un espace pour les collaborateurs qui ont une idée et veulent la tester — nouveaux services, nouvelles pratiques, nouveaux marchés.</p>
+      <ul>
+        <li>Soutien à l'intrapreneuriat</li>
+        <li>Lancement de nouveaux services</li>
+        <li>Accompagnement des projets innovants</li>
+        <li>Réseau de mentors et de partenaires</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
 <!-- CABINETS -->
-<section>
+<section style="background:var(--grey-light);">
   <div class="section-label">Nos cabinets</div>
   <div class="section-title">6 structures indépendantes, une ambition commune</div>
   <div class="cabinets-grid">
@@ -874,26 +1150,123 @@
   <img src="https://cdn.prod.website-files.com/68b5c9f1cd50babf5cdd4259/68b6aa2cfecfd0eb1410038b_250616-Se%CC%81minaire_Groupe_REY-023.jpg" alt="Équipe Groupe Archipel">
 </div>
 
+<!-- TÉMOIGNAGES VIDÉO -->
+<section class="testimonials">
+  <img src="assets/GROUPE ARCHIPEL ARROW.svg" class="arrow-decor" style="left:-80px;top:50%;transform:translateY(-50%);width:380px;opacity:0.07;" alt="">
+  <div class="section-label">Témoignages</div>
+  <div class="section-title">Ceux qui font Archipel vous parlent</div>
+  <div class="testimonials-grid">
+
+    <!-- VIDÉO 1 — ARNAUD
+         Pour intégrer la vidéo YouTube : remplacez le div.video-placeholder par :
+         <iframe src="https://www.youtube.com/embed/VOTRE_ID_ICI?rel=0"
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                 allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe>
+    -->
+    <div class="testimonial-card">
+      <div class="video-wrapper">
+        <div class="video-placeholder">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="video-placeholder-label">Vidéo à intégrer</span>
+        </div>
+      </div>
+      <div class="testimonial-info">
+        <div class="testimonial-avatar">A</div>
+        <div>
+          <div class="testimonial-name">Arnaud</div>
+          <div class="testimonial-role">Associé</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDÉO 2 — FRED & SONIA
+         Pour intégrer la vidéo YouTube : remplacez le div.video-placeholder par un iframe (voir modèle ci-dessus)
+    -->
+    <div class="testimonial-card">
+      <div class="video-wrapper">
+        <div class="video-placeholder">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="video-placeholder-label">Vidéo à intégrer</span>
+        </div>
+      </div>
+      <div class="testimonial-info">
+        <div class="testimonial-avatar">F</div>
+        <div>
+          <div class="testimonial-name">Fred & Sonia</div>
+          <div class="testimonial-role">Associés</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDÉO 3 — MARIE
+         Pour intégrer la vidéo YouTube : remplacez le div.video-placeholder par un iframe (voir modèle ci-dessus)
+    -->
+    <div class="testimonial-card">
+      <div class="video-wrapper">
+        <div class="video-placeholder">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="video-placeholder-label">Vidéo à intégrer</span>
+        </div>
+      </div>
+      <div class="testimonial-info">
+        <div class="testimonial-avatar">M</div>
+        <div>
+          <div class="testimonial-name">Marie</div>
+          <div class="testimonial-role">Collaboratrice</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDÉO 4 — YVES ALAIN
+         Pour intégrer la vidéo YouTube : remplacez le div.video-placeholder par un iframe (voir modèle ci-dessus)
+    -->
+    <div class="testimonial-card">
+      <div class="video-wrapper">
+        <div class="video-placeholder">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="video-placeholder-label">Vidéo à intégrer</span>
+        </div>
+      </div>
+      <div class="testimonial-info">
+        <div class="testimonial-avatar">Y</div>
+        <div>
+          <div class="testimonial-name">Yves Alain</div>
+          <div class="testimonial-role">Associé</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- OFFRES -->
-<section class="offres">
+<section class="offres" id="offres">
   <img src="assets/GROUPE ARCHIPEL ARROW.svg" class="arrow-decor" style="right:-80px;top:50%;transform:translateY(-50%);width:420px;opacity:0.09;" alt="">
   <div class="section-label">On recrute</div>
   <div class="section-title">Stage, alternance, CDI junior</div>
   <div class="offres-grid">
     <div class="offre-card">
       <span class="tag">Stage</span>
-      <h3>Découvrir le métier</h3>
-      <p>Des missions opérationnelles, un vrai encadrement, dans un cabinet où votre présence compte vraiment.</p>
+      <h3>Découvrir le métier pour de vrai</h3>
+      <p>Des missions opérationnelles dès le départ, dans un cabinet où votre présence compte. Pas de tâches invisibles — vous contribuez vraiment.</p>
     </div>
     <div class="offre-card">
       <span class="tag">Alternance</span>
       <h3>Se former en conditions réelles</h3>
-      <p>Préparez votre DCG, DSCG ou Master dans un cabinet qui s'implique dans votre formation, pas juste dans votre présence.</p>
+      <p>Préparez votre DCG, DSCG ou Master dans un cabinet qui s'implique dans votre formation — pas juste dans votre présence au bureau.</p>
     </div>
     <div class="offre-card">
       <span class="tag">CDI Junior</span>
-      <h3>Démarrer sa carrière</h3>
-      <p>Vous venez de valider votre diplôme ? Rejoignez un groupe en croissance où les responsabilités arrivent vite.</p>
+      <h3>Démarrer sans attendre</h3>
+      <p>Diplômé·e et prêt·e ? Rejoignez un groupe en croissance où les responsabilités arrivent vite — pour ceux qui les cherchent.</p>
     </div>
   </div>
   <a href="https://app.wink-lab.com/entreprise/archipel" class="btn-primary" target="_blank">Voir toutes nos offres →</a>
@@ -907,22 +1280,22 @@
     <div class="step">
       <div class="step-num">1</div>
       <h3>Candidature</h3>
-      <p>Un CV + quelques lignes sur votre projet. C'est tout. On lit tout.</p>
+      <p>Un CV + quelques lignes sur votre projet. C'est tout. On lit vraiment tout ce qu'on reçoit.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <h3>Appel découverte</h3>
-      <p>30 min avec notre recruteuse pour comprendre votre projet et répondre à vos questions.</p>
+      <p>30 min avec notre recruteuse pour comprendre votre projet, répondre à vos questions sans filtre.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <h3>Entretien cabinet</h3>
-      <p>Rencontre avec l'associé, le manager, les missions concrètes. Et un test technique sur place.</p>
+      <p>Rencontre avec l'associé et le manager. Les missions concrètes, les vraies conditions. Et un test technique sur place.</p>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <h3>Réponse rapide</h3>
-      <p>Process bouclé en moins de deux semaines. On ne ghost pas.</p>
+      <p>Process bouclé en moins de deux semaines. On ne ghost pas — quelle que soit la réponse.</p>
     </div>
   </div>
 </section>
@@ -955,9 +1328,9 @@
       </div>
       <div class="guide-card-body">
         <ul>
-          <li><strong>Qui vous êtes :</strong> formation, école, rythme d'alternance ou disponibilité de stage</li>
-          <li><strong>Ce que vous avez fait :</strong> une ou deux expériences marquantes, racontées simplement</li>
-          <li><strong>Pourquoi vous êtes là :</strong> ce qui vous a amené vers l'expertise comptable et vers ce cabinet en particulier</li>
+          <li><strong style="color:white;">Qui vous êtes :</strong> formation, école, rythme d'alternance ou disponibilité de stage</li>
+          <li><strong style="color:white;">Ce que vous avez fait :</strong> une ou deux expériences marquantes, racontées simplement</li>
+          <li><strong style="color:white;">Pourquoi vous êtes là :</strong> ce qui vous a amené vers l'expertise comptable et ce cabinet en particulier</li>
           <li>Entraînez-vous à voix haute, 3 min max, pas de lecture, regard direct</li>
         </ul>
       </div>
@@ -966,7 +1339,7 @@
     <div class="guide-card">
       <div class="guide-card-header">
         <span class="step-tag">Étape 3</span>
-        <h3>Préparez de vraies questions</h3>
+        <h3>Préparez de vraies questions — pas des questions pour faire bien</h3>
       </div>
       <div class="guide-card-body">
         <ul>
@@ -989,7 +1362,7 @@
       <div class="section-label">Carrière long terme</div>
       <div class="section-title">Devenez Expert-Comptable au sein du Groupe</div>
       <p class="dec-intro">
-        Rejoindre Archipel en stage ou en alternance, c'est aussi s'ouvrir une voie vers le titre d'Expert-Comptable. Nos cabinets accompagnent activement leurs collaborateurs dans la préparation du DEC, parce qu'un expert-comptable formé ici est un expert-comptable qui reste.
+        Rejoindre Archipel en stage ou en alternance, c'est aussi s'ouvrir une voie vers le titre d'Expert-Comptable. Nos cabinets accompagnent activement leurs collaborateurs dans la préparation du DEC — parce qu'un expert-comptable formé ici, c'est un expert-comptable qui reste.
       </p>
       <div class="dec-path">
         <div class="dec-step">
@@ -1010,14 +1383,14 @@
           <div class="dot"></div>
           <div>
             <h4>Stage DEC accompagné</h4>
-            <p>Nos cabinets proposent des stages de préparation au DEC et soutiennent les candidats dans leur parcours.</p>
+            <p>Nos cabinets proposent des stages de préparation au DEC et soutiennent les candidats tout au long du parcours.</p>
           </div>
         </div>
         <div class="dec-step">
           <div class="dot"></div>
           <div>
             <h4>Expert-Comptable diplômé</h4>
-            <p>Vous construisez votre carrière au sein du Groupe, jusqu'à l'association si vous le souhaitez.</p>
+            <p>Vous construisez votre carrière dans le Groupe — jusqu'à l'association si vous le souhaitez.</p>
           </div>
         </div>
       </div>
@@ -1031,7 +1404,7 @@
         <li>Accompagnement dans les démarches auprès du CSOEC</li>
         <li>Flexibilité pour les périodes d'examens et de mémoire</li>
         <li>Réseau inter-cabinets pour partager les retours d'expérience</li>
-        <li>Perspective d'association pour les profils qui souhaitent s'investir long terme</li>
+        <li>Perspective d'association pour les profils qui s'investissent sur le long terme</li>
       </ul>
     </div>
   </div>
