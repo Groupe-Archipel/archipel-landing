@@ -441,8 +441,9 @@
 
     .marquee-wrapper {
       overflow: hidden;
-      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      padding: 12px 0;
     }
 
     .marquee-track {
@@ -450,9 +451,10 @@
       gap: 16px;
       width: max-content;
       animation: marquee 32s linear infinite;
+      will-change: transform;
     }
 
-    .marquee-wrapper:hover .marquee-track {
+    .marquee-track.paused {
       animation-play-state: paused;
     }
 
@@ -466,17 +468,18 @@
       border: none;
       border-radius: 20px;
       padding: 24px 26px;
-      transition: all 0.25s;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.2s ease;
       text-decoration: none;
       display: block;
       background: var(--white);
       box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06);
+      cursor: pointer;
     }
 
     .cabinet-card:hover {
       background: var(--sand);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(13,27,75,0.12);
     }
 
     .cabinet-card h3 {
@@ -1594,9 +1597,18 @@
 (function() {
   const track = document.getElementById('marqueeTrack');
   if (!track) return;
-  // Duplicate cards for infinite loop
   const cards = Array.from(track.children);
   cards.forEach(card => track.appendChild(card.cloneNode(true)));
+
+  // Pause on individual card hover
+  track.addEventListener('mouseover', function(e) {
+    const card = e.target.closest('.cabinet-card');
+    if (card) track.classList.add('paused');
+  });
+  track.addEventListener('mouseout', function(e) {
+    const card = e.target.closest('.cabinet-card');
+    if (card) track.classList.remove('paused');
+  });
 })();
 </script>
 </body>
