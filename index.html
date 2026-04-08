@@ -1060,27 +1060,45 @@
 
     /* ── FORMULAIRE ── */
     .form-section {
-      background: var(--sand);
+      background: var(--navy);
+      background-image:
+        linear-gradient(135deg, rgba(13,27,75,0.90) 0%, rgba(13,27,75,0.60) 60%, rgba(13,27,75,0.75) 100%),
+        url('https://images.pexels.com/photos/34656946/pexels-photo-34656946.jpeg?auto=compress&cs=tinysrgb&w=1920');
+      background-size: cover;
+      background-position: center 40%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
+      position: relative;
     }
 
-    .form-section .section-title { margin-bottom: 16px; }
+    .form-section .section-label { color: var(--orange); }
+
+    .form-section .section-title {
+      margin-bottom: 16px;
+      background: none;
+      -webkit-text-fill-color: var(--white);
+      color: var(--white);
+    }
 
     .form-section p {
-      color: var(--grey);
+      color: rgba(255,255,255,0.75);
       font-size: 0.95rem;
       line-height: 1.7;
       margin-bottom: 28px;
     }
 
+    .form-section a { color: var(--orange) !important; }
+
     .tally-card {
-      background: var(--navy);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 24px;
       padding: 40px 44px;
-      box-shadow: 0 24px 64px rgba(13,27,75,0.18);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.25);
       position: relative;
       overflow: hidden;
     }
@@ -1091,7 +1109,7 @@
       top: -60px; right: -60px;
       width: 220px; height: 220px;
       background: var(--orange);
-      opacity: 0.08;
+      opacity: 0.12;
       border-radius: 50%;
     }
 
