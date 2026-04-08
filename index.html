@@ -1062,34 +1062,74 @@
     .form-section {
       background: var(--navy);
       background-image:
-        linear-gradient(135deg, rgba(13,27,75,0.90) 0%, rgba(13,27,75,0.60) 60%, rgba(13,27,75,0.75) 100%),
+        linear-gradient(to bottom, rgba(13,27,75,0.55) 0%, rgba(13,27,75,0.80) 60%, rgba(13,27,75,0.95) 100%),
         url('https://images.pexels.com/photos/34656946/pexels-photo-34656946.jpeg?auto=compress&cs=tinysrgb&w=1920');
       background-size: cover;
-      background-position: center 40%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      background-position: center 30%;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      position: relative;
+      text-align: center;
+      padding: 120px 80px;
+      gap: 0;
     }
 
     .form-section .section-label { color: var(--orange); }
 
     .form-section .section-title {
-      margin-bottom: 16px;
       background: none;
       -webkit-text-fill-color: var(--white);
       color: var(--white);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      max-width: 700px;
+      margin-bottom: 20px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .form-section p {
-      color: rgba(255,255,255,0.75);
-      font-size: 0.95rem;
+    .form-section .form-subtitle {
+      color: rgba(255,255,255,0.70);
+      font-size: 1rem;
       line-height: 1.7;
-      margin-bottom: 28px;
+      max-width: 480px;
+      margin-bottom: 52px;
     }
 
-    .form-section a { color: var(--orange) !important; }
+    .form-perks-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .form-perk {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 8px 18px;
+      color: rgba(255,255,255,0.90);
+      font-size: 0.85rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .form-perk::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    .form-contact {
+      margin-top: 28px;
+      color: rgba(255,255,255,0.50);
+      font-size: 0.85rem;
+    }
+
+    .form-contact a { color: rgba(255,255,255,0.75) !important; text-decoration: underline; }
 
     .tally-card {
       background: rgba(255,255,255,0.08);
@@ -1163,27 +1203,25 @@
       font-weight: 800;
     }
 
-    .tally-card .btn-tally {
+    .btn-tally {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: var(--orange);
       color: var(--white);
       font-weight: 700;
-      font-size: 0.95rem;
-      padding: 14px 28px;
+      font-size: 1.05rem;
+      padding: 18px 44px;
       border-radius: 100px;
       border: none;
       cursor: pointer;
-      transition: all 0.2s ease;
-      width: 100%;
-      justify-content: center;
+      transition: all 0.25s ease;
     }
 
-    .tally-card .btn-tally:hover {
+    .btn-tally:hover {
       background: #d4784f;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(232,149,109,0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(232,149,109,0.45);
     }
 
     /* ── FOOTER ── */
@@ -1667,25 +1705,19 @@
 
 <!-- FORMULAIRE -->
 <section class="form-section" id="contact">
-  <div>
-    <div class="section-label">Pas encore disponible ?</div>
-    <div class="section-title">Restez dans la boucle.</div>
-    <p>Laissez-nous vos coordonnées et dites-nous ce que vous recherchez. On vous contacte en priorité dès qu'une offre correspond à votre profil.</p>
-    <p>Une question ? <a href="mailto:recrutement@groupearchipel.com" style="color:var(--navy);font-weight:600;">recrutement@groupearchipel.com</a></p>
+  <div class="section-label">Pas encore disponible ?</div>
+  <div class="section-title">Restez dans la boucle.</div>
+  <p class="form-subtitle">Laissez-nous vos coordonnées. On vous contacte en priorité dès qu'une offre correspond à votre profil.</p>
+  <div class="form-perks-row">
+    <div class="form-perk">Accès aux offres avant publication</div>
+    <div class="form-perk">Un échange avec notre recruteuse</div>
+    <div class="form-perk">Réponse garantie</div>
   </div>
-  <div class="tally-card">
-    <div class="tally-card-label">2 minutes suffisent</div>
-    <div class="tally-card-title">On vous contacte dès qu'une offre correspond à votre profil.</div>
-    <ul class="tally-perks">
-      <li>Accès aux offres avant leur publication</li>
-      <li>Un échange avec notre recruteuse dans les meilleurs délais</li>
-      <li>Réponse garantie, quelle que soit la suite</li>
-    </ul>
-    <button data-tally-open="2EJXoA" data-tally-overlay="1" data-tally-width="500" class="btn-tally">
-      Je laisse mes coordonnées →
-    </button>
-    <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-  </div>
+  <button data-tally-open="2EJXoA" data-tally-overlay="1" data-tally-width="500" class="btn-tally">
+    Je laisse mes coordonnées →
+  </button>
+  <p class="form-contact">Une question ? <a href="mailto:recrutement@groupearchipel.com">recrutement@groupearchipel.com</a></p>
+  <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 </section>
 
 <!-- FOOTER -->
