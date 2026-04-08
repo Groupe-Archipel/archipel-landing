@@ -1270,9 +1270,13 @@
       padding: 40px 80px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
+      justify-content: center;
+      position: relative;
+    }
+
+    footer .logo {
+      position: absolute;
+      left: 80px;
     }
 
     footer .logo img { height: 32px; width: auto; }
@@ -1280,9 +1284,12 @@
     footer p {
       color: rgba(255,255,255,0.4);
       font-size: 0.82rem;
+      text-align: center;
     }
 
     footer a {
+      position: absolute;
+      right: 80px;
       color: var(--orange);
       text-decoration: none;
       font-size: 0.85rem;
