@@ -1076,24 +1076,97 @@
       margin-bottom: 28px;
     }
 
-    .tally-embed {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 32px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-      min-height: 380px;
+    .tally-card {
+      background: var(--navy);
+      border-radius: 24px;
+      padding: 40px 44px;
+      box-shadow: 0 24px 64px rgba(13,27,75,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tally-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: var(--orange);
+      opacity: 0.08;
+      border-radius: 50%;
+    }
+
+    .tally-card-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+
+    .tally-card-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    .tally-perks {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .tally-perks li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+
+    .tally-perks li::before {
+      content: '✓';
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      background: var(--orange);
+      color: white;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(0,0,0,0.06);
+      font-size: 0.7rem;
+      font-weight: 800;
     }
 
-    .tally-placeholder {
-      text-align: center;
-      color: var(--grey);
+    .tally-card .btn-tally {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      justify-content: center;
     }
 
-    .tally-placeholder p { font-size: 0.85rem; margin-top: 8px; }
+    .tally-card .btn-tally:hover {
+      background: #d4784f;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232,149,109,0.35);
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -1582,8 +1655,15 @@
     <p>Laissez-nous vos coordonnées et dites-nous ce que vous recherchez. On vous contacte en priorité dès qu'une offre correspond à votre profil.</p>
     <p>Une question ? <a href="mailto:recrutement@groupearchipel.com" style="color:var(--navy);font-weight:600;">recrutement@groupearchipel.com</a></p>
   </div>
-  <div class="tally-embed">
-    <button data-tally-open="ODJab8" data-tally-overlay="1" data-tally-width="500" class="btn-primary" style="font-size:1rem; padding: 16px 32px; cursor:pointer; border:none;">
+  <div class="tally-card">
+    <div class="tally-card-label">2 minutes suffisent</div>
+    <div class="tally-card-title">On vous contacte dès qu'une offre correspond à votre profil.</div>
+    <ul class="tally-perks">
+      <li>Accès aux offres avant leur publication</li>
+      <li>Un échange avec notre recruteuse, pas un ATS</li>
+      <li>Réponse garantie, quelle que soit la suite</li>
+    </ul>
+    <button data-tally-open="ODJab8" data-tally-overlay="1" data-tally-width="500" class="btn-tally">
       Je laisse mes coordonnées →
     </button>
     <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
